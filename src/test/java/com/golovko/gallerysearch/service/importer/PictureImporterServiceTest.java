@@ -11,11 +11,13 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@ActiveProfiles("test")
 @Sql(statements = {
         "delete from picture",
         "delete from image_tag",},
@@ -33,7 +35,7 @@ public class PictureImporterServiceTest {
 
     @Test
     public void testImportPicture() {
-        String externalId = "123";
+        String externalId = "d329241ef93500ba67d1";
 
         PictureFullDTO pictureDTO = createPictureFullDTO(externalId);
         Mockito.when(galleryClient.getPictureById(externalId)).thenReturn(pictureDTO);
@@ -44,6 +46,7 @@ public class PictureImporterServiceTest {
 
         Assert.assertEquals(pictureDTO.getAuthor(), picture.getAuthor());
         Assert.assertEquals(pictureDTO.getId(), picture.getExternalId());
+        Assert.assertEquals(3, picture.getImageTags().size());
     }
 
     private PictureFullDTO createPictureFullDTO(String id) {
@@ -53,6 +56,7 @@ public class PictureImporterServiceTest {
         dto.setCamera("camera name");
         dto.setCroppedPictureUrl("some url");
         dto.setFullPictureUrl("some other url");
+        dto.setTags("#nature #life #view");
         return dto;
     }
 }

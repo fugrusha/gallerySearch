@@ -16,7 +16,7 @@ public class ImageTag {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String tag;
+    private String tagName;
 
     @ManyToMany(mappedBy = "imageTags")
     private List<Picture> pictures = new ArrayList<>();

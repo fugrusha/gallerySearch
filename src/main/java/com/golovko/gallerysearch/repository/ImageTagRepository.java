@@ -4,8 +4,8 @@ import com.golovko.gallerysearch.domain.ImageTag;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.UUID;
-
 @Repository
 public interface ImageTagRepository extends CrudRepository<ImageTag, Long> {
+
+    ImageTag findByTagName(String name);
 }

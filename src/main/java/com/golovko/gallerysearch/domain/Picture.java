@@ -26,7 +26,7 @@ public class Picture {
 
     private String fullPictureUrl;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "picture_tag",
             joinColumns = @JoinColumn(name = "picture_id"),
