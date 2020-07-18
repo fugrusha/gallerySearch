@@ -1,5 +1,6 @@
 package com.golovko.gallerysearch.client.gallery;
 
+import com.golovko.gallerysearch.client.gallery.dto.PictureFullDTO;
 import com.golovko.gallerysearch.client.gallery.dto.PictureShortDTO;
 import com.golovko.gallerysearch.client.gallery.dto.PicturesPageDTO;
 import org.junit.Assert;
@@ -28,6 +29,17 @@ public class GalleryClientTest {
             Assert.assertNotNull(dto.getId());
             Assert.assertNotNull(dto.getCroppedPictureUrl());
         }
+    }
+
+    @Test
+    public void testGetPictureById() {
+        String id = "e6dd1ab1d44262416ce6";
+
+        PictureFullDTO dto = galleryClient.getPictureById(id);
+
+        Assert.assertEquals(id, dto.getId());
+        Assert.assertEquals("Tall Fun", dto.getAuthor());
+        Assert.assertEquals("Nikon Z6 (our top all-round camera)", dto.getCamera());
     }
 
 }
