@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface PictureRepository extends CrudRepository<Picture, UUID> {
+public interface PictureRepository extends CrudRepository<Picture, Long> {
 }

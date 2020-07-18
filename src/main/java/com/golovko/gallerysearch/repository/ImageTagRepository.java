@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface ImageTagRepository extends CrudRepository<ImageTag, UUID> {
+public interface ImageTagRepository extends CrudRepository<ImageTag, Long> {
 }

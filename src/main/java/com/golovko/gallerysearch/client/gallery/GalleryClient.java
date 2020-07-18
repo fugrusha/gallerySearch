@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface GalleryClient {
 
     @RequestMapping(method = RequestMethod.GET, value = "/images")
-    PicturesPageDTO getPicturesPage(@RequestParam(defaultValue = "1") String page);
+    PicturesPageDTO getPicturesPage(@RequestParam(defaultValue = "1") Integer page);
 
     @RequestMapping(method = RequestMethod.GET, value = "/images/{id}")
     PictureFullDTO getPictureById(@PathVariable("id") String pictureId);

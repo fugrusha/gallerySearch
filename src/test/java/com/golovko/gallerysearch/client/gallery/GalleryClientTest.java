@@ -19,7 +19,7 @@ public class GalleryClientTest {
 
     @Test
     public void testGetPicturesPage() {
-        PicturesPageDTO pageDTO = galleryClient.getPicturesPage("1");
+        PicturesPageDTO pageDTO = galleryClient.getPicturesPage(1);
 
         Assert.assertEquals(1, pageDTO.getPage().intValue());
         Assert.assertTrue(pageDTO.getPageCount() > 0);
